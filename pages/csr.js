@@ -1,15 +1,14 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import {useEffect, useState} from "react";
 
-//getServerSideProps 는 서버사이드에서 실행되는 함수이다.
+export default function CSR() {
+  const [time, setTime] =useState();
 
-export async function getServerSideProps(){
-console.log('server side rendering')
-  return {
-    props: {time: new Date().toISOString()}
-  }
-}
-export default function CSR({time}) {
+  useEffect(() => {
+    console.log('client side rendering')
+    setTime(new Date().toISOString())
+  }, [])
   return (
     <div className="container">
       <Head>
@@ -19,11 +18,10 @@ export default function CSR({time}) {
 
       <main>
         <h1 className="title">
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
+          {time}
         </h1>
+        <Link href="/">to home</Link>
       </main>
-      <Link href="/csr">to CSR</Link>
-      <Link href="/ssg">to SSG</Link>
 
       <footer>
         <a

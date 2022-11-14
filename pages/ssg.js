@@ -1,15 +1,13 @@
 import Head from 'next/head'
-import Link from 'next/link'
 
-//getServerSideProps 는 서버사이드에서 실행되는 함수이다.
-
-export async function getServerSideProps(){
-console.log('server side rendering')
+export async function getStaticProps(){
+  console.log('static site generation')
   return {
     props: {time: new Date().toISOString()}
   }
 }
-export default function CSR({time}) {
+
+export default function SSG({time}) {
   return (
     <div className="container">
       <Head>
@@ -19,11 +17,9 @@ export default function CSR({time}) {
 
       <main>
         <h1 className="title">
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
+          {time}
         </h1>
       </main>
-      <Link href="/csr">to CSR</Link>
-      <Link href="/ssg">to SSG</Link>
 
       <footer>
         <a
