@@ -1,5 +1,8 @@
 import Head from 'next/head'
 
+//여기는 컴포넌트이기 때문에 ssr를 할 수 없다.
+// 이 레이아웃 구조에(header, footer가 공통적으로 들어가게 함) main 내용물만 바뀌게 하는 구조이다.
+//첫 페이지에서는 _app.js에 index.js가 들어가게 되는데, 이때 index.js의 내용물이 children으로 들어가게 된다.
 export default function Layout({children}) {
   return (
     <div className="container">
