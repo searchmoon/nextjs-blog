@@ -1,11 +1,11 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import {useEffect, useState} from "react";
-import SubLayout from "../components/SubLayout";
-import Layout from "../components/Layout";
+import { useEffect, useState } from 'react'
+import SubLayout from '../components/SubLayout'
+import Layout from '../components/Layout'
 
 export default function CSR() {
-  const [time, setTime] =useState();
+  const [time, setTime] = useState()
 
   useEffect(() => {
     console.log('client side rendering')
@@ -13,9 +13,7 @@ export default function CSR() {
   }, [])
   return (
     <>
-        <h1 className="title">
-          {time}
-        </h1>
+      <h1 className="title">{time}</h1>
     </>
   )
 }
