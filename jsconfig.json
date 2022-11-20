@@ -3,3 +3,4 @@
     "baseUrl": "src"
   }
 }
+// 절대경로로 하기 귀찮으니깐. baseurl을 src로 설정
