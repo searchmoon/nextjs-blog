@@ -1,5 +1,6 @@
-import Layout from '../../components/Layout'
-import SubLayout from '../../components/SubLayout'
+import Layout from 'components/Layout'
+import SubLayout from 'components/SubLayout'
+import { useState } from 'react'
 import { useRouter } from 'next/router'
 
 export async function getServerSideProps() {
@@ -18,7 +19,7 @@ export default function MyInfo() {
   return (
     <>
       <h1 className="title">My Info</h1>
-      <h1 className="title">Clicked: {clicked} </h1>
+      <h1 className="title">Clicked: {String(clicked)} </h1>
       <h1 className="title">Status: {status} </h1>
       <button
         onClick={() => {
@@ -29,6 +30,7 @@ export default function MyInfo() {
       >
         edit(replace)
       </button>
+      {/* 이 첫번째 버튼은 true로 바꼈다가 바로 다시 false로 바뀜. url을 바꾸기 위해 이 페이지를 새로 리렌더 했기 때문 */}
       <br />
       <button
         onClick={() => {
