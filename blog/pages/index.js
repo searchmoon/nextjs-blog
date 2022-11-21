@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import Image from 'next/Image'
 export default function Home() {
   return (
     <div className="container">
@@ -12,7 +13,8 @@ export default function Home() {
           Welcome to <a href="https://nextjs.org">Next.js!</a>
           <Link href="/posts/first-post">첫번째 글</Link>
         </h1>
-
+        <img src='images/mountains.png' alt='mountains'>
+          <Image src='images/mountains.png' alt='mountains'>
         <p className="description">
           Get started by editing <code>pages/index.js</code>
         </p>
