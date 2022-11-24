@@ -1,26 +1,27 @@
 import Head from 'next/head'
 import Layout, { siteTitle } from '../components/layout'
 import utilStyles from '../styles/utils.module.css'
-// import {getSortedPostsData} from "../lib/posts";
+import {getSortedPostsData} from "../lib/posts";
 // import {useEffect, useState} from "react";
 
-// export async function getServerSideProps() {
-//   const allPostsData = getSortedPostsData()
-//   return {
-//     props: {
-//       allPostsData,
-//     },
-//   }
-// }
 export async function getStaticProps() {
-  const response = await fetch('http://localhost:3000/api/posts')
-  const json = await response.json()
+  const allPostsData = getSortedPostsData()
   return {
     props: {
-      allPostsData: json.allPostsData,
-    }
+      allPostsData,
+    },
   }
 }
+
+// export async function getStaticProps() {
+//   const response = await fetch('http://localhost:3000/api/posts')
+//   const json = await response.json()
+//   return {
+//     props: {
+//       allPostsData: json.allPostsData,
+//     }
+//   }
+// }
 
 export default function Home({allPostsData}) {
   // const [allPostsData, setAllPostsData] = useState([]);
