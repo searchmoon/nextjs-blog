@@ -1,5 +1,8 @@
-import React, {useCallback, useRef} from 'react';
+import React, {useCallback, useRef, useState} from 'react';
 import Layout from "../../components/Layout";
+import Link from "next/link";
+
+const [showLink, setShowLink] = useState(false);
 
 const Write = () => {
   const idRef = useRef(undefined)
@@ -25,7 +28,10 @@ const Write = () => {
         }
         throw new Error('Fetch Error')
       })
-      .then((data) => alert(data.message))
+      .then((data) => {
+        setShowLink(true)
+        alert(data.message)
+      })
       .catch((error) => alert(`request error: ${error}`))
   }
   return (
@@ -40,6 +46,7 @@ const Write = () => {
         <br/>
         <input type="submit" value="create" />
       </form>
+      {showLink && <Link href={`/posts/${idRef.current.value}`}>Created Post</Link>}
     </Layout>
   );
 };

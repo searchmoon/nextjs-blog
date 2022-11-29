@@ -1,7 +1,7 @@
 import Date from '../../components/Date'
 import Layout from '../../components/Layout'
 import { useRouter } from 'next/router'
-import { getPostData } from '../../lib/posts'
+import { getAllPostIds, getPostData } from '../../lib/posts'
 import utilStyles from '../../styles/utils.module.css'
 
 export async function getStaticPaths() {

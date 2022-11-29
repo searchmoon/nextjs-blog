@@ -1,21 +1,20 @@
 import Head from 'next/head'
-import Layout, { siteTitle } from '../components/layout'
+import Layout, { siteTitle } from '../components/Layout'
 import utilStyles from '../styles/utils.module.css'
-import { getSortedPostsData } from '../lib/posts'
-// import {useEffect, useState} from "react";
-import Link from 'next/link'
-import Date from '../components/date'
+import Link from 'next/link';
+import Date from '../components/Date';
+
 
 // export async function getStaticProps() {
 //   const allPostsData = getSortedPostsData()
 //   return {
 //     props: {
 //       allPostsData,
-//     },
+//    },
 //   }
 // }
 
-export async function getServerSideProps() {
+export async function getServersideProps() {
   const response = await fetch('http://localhost:3000/api/posts')
   const json = await response.json()
   return {

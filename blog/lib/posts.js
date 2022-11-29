@@ -83,15 +83,15 @@ export async function getPostData(id) {
   }
 }
 
-// export async function createPost({id, title, date, content}) {
-//   const fullPath = path.join(postsDirectory, `${id}.md`)
+export async function createPost({id, title, date, content}) {
+  const fullPath = path.join(postsDirectory, `${id}.md`)
 
-//   const data = `---
-//   title: `${title}`
-//   date: `${date}`
-//   ---
+  const data = `---
+  title: '${title}'
+  date: '${date}'
+  ---
 
-//   ${content}`
+  ${content}`
 
-//   fs.writeFileSync(fullPath, data)
-// }
+  fs.writeFileSync(fullPath, data)
+}
